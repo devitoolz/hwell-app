@@ -13,6 +13,7 @@ const Header = () => {
             alt="건강증진센터"
             width={40}
             height={40}
+            priority={true}
           />
         </Link>
       </div>

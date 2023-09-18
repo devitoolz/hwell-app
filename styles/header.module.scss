@@ -12,6 +12,9 @@
 
 .logo-container {
   display: flex;
+  > a {
+    display: flex;
+  }
 }
 
 .logo {
