@@ -1,0 +1,26 @@
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+}
+
+.logo-container {
+  display: flex;
+}
+
+.logo {
+  padding: 6px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px 0 rgba(136, 136, 136, 0.3);
+  background: white;
+  transition: background 0.2s;
+  &:active {
+    background: yellowgreen;
+  }
+}
