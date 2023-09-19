@@ -14,8 +14,11 @@ type HomeProps = {
 };
 
 export default function Home({ infos }: HomeProps) {
+  /*  */
+
   useEffect(() => {
     console.log(infos);
+    /* 새로운 정보가 들어온다면 다시 렌더링 */
   }, [infos]);
 
   return (
