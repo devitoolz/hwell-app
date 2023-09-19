@@ -4,10 +4,20 @@ import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
 import Header from '@/components/common/Header';
 import MapScene from '@/components/home/MapScene';
+import { Info } from '@/types/info';
+import { useEffect } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export default function Home() {
+type HomeProps = {
+  infos: Info[];
+};
+
+export default function Home({ infos }: HomeProps) {
+  useEffect(() => {
+    console.log(infos);
+  }, [infos]);
+
   return (
     <>
       <Head>
@@ -21,3 +31,12 @@ export default function Home() {
     </>
   );
 }
+
+// pre-rendering 해서 SSG 생성
+export const getStaticProps = async () => {
+  const infos = (await import('@/public/data.json')).default;
+  return {
+    props: { infos },
+    // revalidate: 3600,
+  };
+};
