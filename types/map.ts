@@ -11,3 +11,8 @@ export type MapProps = {
   initialMinZoom?: number;
   onLoad?: (map: NaverMap) => void;
 };
+
+export type Marker = {
+  map: NaverMap;
+  cordinates: Cordinates;
+};

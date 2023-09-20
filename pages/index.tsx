@@ -1,25 +1,24 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import { Inter } from 'next/font/google';
-import styles from '@/styles/Home.module.css';
 import Header from '@/components/common/Header';
 import MapScene from '@/components/home/MapScene';
 import { Info } from '@/types/info';
 import { useEffect } from 'react';
-
-const inter = Inter({ subsets: ['latin'] });
+import useInfo from '@/hooks/useInfo';
 
 type HomeProps = {
   infos: Info[];
 };
 
 export default function Home({ infos }: HomeProps) {
-  /*  */
+  // 위경도에 대한 정보(.json) 및 naver 의 map 객체를 전역으로 참조해서
+  // SWR 상태관리 ()
+  const { initializeInfos } = useInfo();
 
   useEffect(() => {
     console.log(infos);
+    initializeInfos(infos);
     /* 새로운 정보가 들어온다면 다시 렌더링 */
-  }, [infos]);
+  }, [initializeInfos, infos]);
 
   return (
     <>

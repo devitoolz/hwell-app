@@ -2,12 +2,12 @@ import { INFO_KEY } from '@/hooks/useInfo';
 import { MAP_KEY } from '@/hooks/useMap';
 import { Info } from '@/types/info';
 import { NaverMap } from '@/types/map';
-import React from 'react';
 import useSWR from 'swr';
 import Marker from './Marker';
 const Markers = () => {
   // 전역상태 정보 위경도 정보를 활용한다.
   const { data: infos } = useSWR<Info[]>(INFO_KEY);
+
   // 전역상태 정보 네이버 map 객체 정보 활용
   const { data: map } = useSWR<NaverMap>(MAP_KEY);
   // infos 와 map 이 모두 있어야 출력한다.
